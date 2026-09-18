@@ -43,6 +43,12 @@ The project now carries the same LibreLane 3.0 Nix environment pattern as the
 official IHP template. From the project root run either command:
 
 ```bash
+mkdir -p ~/labs
+cd ~/labs
+git clone 
+
+cd ~/labs/ibex/ibex-ihp-sg13g2-fullchip
+
 nix-shell
 # or, on a flakes-enabled installation:
 nix develop
