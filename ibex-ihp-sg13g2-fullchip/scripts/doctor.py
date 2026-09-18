@@ -10,7 +10,7 @@ try:
     c=yaml.safe_load((r/'librelane/config.yaml').read_text())
     assert c['meta']['version']==3 and c['meta']['flow']=='Chip'
 except Exception as e: errors.append(f'config.yaml: {e}')
-for p in ('rtl/chip_top.sv','rtl/ibex_soc.sv','rtl/ihp_sram_1kx32.sv','librelane/chip_top.sdc','librelane/pdn_cfg.tcl'):
+for p in ('shell.nix','flake.nix','flake.lock','rtl/chip_top.sv','rtl/ibex_soc.sv','rtl/ihp_sram_1kx32.sv','librelane/chip_top.sdc','librelane/pdn_cfg.tcl'):
     if not (r/p).is_file(): errors.append(f'missing file: {p}')
 print('Doctor: '+('FAIL' if errors else 'PASS'))
 for e in errors: print(' - '+e)

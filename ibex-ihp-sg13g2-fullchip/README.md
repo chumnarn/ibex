@@ -38,14 +38,23 @@ fetches use `u_imem`; load/store operations use `u_dmem`.
 
 ## 1. Install prerequisites
 
-On the IHP template Nix environment:
+The project now carries the same LibreLane 3.0 Nix environment pattern as the
+official IHP template. From the project root run either command:
 
 ```bash
 nix-shell
-python3 -m pip install --user 'fusesoc>=2.4' pyyaml
+# or, on a flakes-enabled installation:
+nix develop
+
 librelane --version
 ciel --version
+fusesoc --version
 ```
+
+The first invocation downloads/builds the pinned environment and can take some
+time. If Nix rejects the binary cache as untrusted, add the substituter and
+public key shown in `flake.nix` to `/etc/nix/nix.conf`, or allow Nix to build
+the affected packages locally.
 
 LibreLane 3.x has no `--interactive` and no `--override`; this project uses
 only supported `--run-tag`, `--flow`, and `--skip` options.

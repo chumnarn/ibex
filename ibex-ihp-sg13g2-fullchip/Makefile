@@ -7,7 +7,8 @@ RUN_TAG ?= ibex_$(shell date +%Y%m%d_%H%M%S)
 help:
 	@echo "make setup | doctor | lint | harden | harden-nodrc | openroad | klayout | archive"
 setup:
-	python3 -m pip install --user 'fusesoc>=2.4' pyyaml
+	@command -v fusesoc >/dev/null || { echo "ERROR: fusesoc missing; enter nix-shell first"; exit 1; }
+	@python3 -c 'import yaml' || { echo "ERROR: PyYAML missing; enter nix-shell first"; exit 1; }
 	python3 scripts/prepare_rtl.py
 doctor:
 	python3 scripts/doctor.py
