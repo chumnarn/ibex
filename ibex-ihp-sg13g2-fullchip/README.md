@@ -45,7 +45,7 @@ official IHP template. From the project root run either command:
 ```bash
 mkdir -p ~/labs
 cd ~/labs
-git clone 
+git clone https://github.com/chumnarn/ibex.git
 
 cd ~/labs/ibex/ibex-ihp-sg13g2-fullchip
 
