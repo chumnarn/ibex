@@ -1,0 +1,7 @@
+create_clock -name clk -period 20.000 [get_ports clk_PAD]
+set_clock_uncertainty 0.25 [get_clocks clk]
+set_input_transition 0.15 [get_ports {clk_PAD rst_n_PAD boot_mode_PAD boot_sclk_PAD boot_cs_n_PAD boot_mosi_PAD irq_PAD gpio_in_PAD*}]
+set_input_delay 2.0 -clock [get_clocks clk] [get_ports {rst_n_PAD boot_mode_PAD boot_sclk_PAD boot_cs_n_PAD boot_mosi_PAD irq_PAD gpio_in_PAD*}]
+set_output_delay 4.0 -clock [get_clocks clk] [get_ports {gpio_out_PAD* boot_ready_PAD core_sleep_PAD}]
+set_load 0.033442 [get_ports {gpio_out_PAD* boot_ready_PAD core_sleep_PAD}]
+set_false_path -from [get_ports {rst_n_PAD boot_sclk_PAD boot_cs_n_PAD boot_mosi_PAD boot_mode_PAD}]
